@@ -11,13 +11,13 @@ html {
 .page {
   display: flex;
   align-items: center;
-  inline-size: 1200px;
-  block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  inline-size: 1200px;
+  block-size: 100%;
 }
 
 h1,
@@ -48,34 +48,44 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
+}
+
+.visually-hidden {
+  position: absolute; 
+  width: 1px; 
+  height: 1px;
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  overflow: hidden;
 }
 
 .content {
   display: grid;
   grid-template-columns: 711px 399px;
-  height: 534px;
-  grid-template-areas: 
-  "result details";
-  column-gap: 30px;
+  grid-template-areas: "result details";
   align-items: end;
+  column-gap: 30px;
+  height: 534px;
+  margin: auto;
 }
 
 .result {
   grid-area: result;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .result__video {
-  object-fit: cover;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .result__video-container {
   height: 386px;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .search-form {
@@ -85,16 +95,60 @@ ol {
   height: 54px;
 }
 
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 5px; /* Или 7.5px, пока не допер */
+}
+
+.search-form__textfield {
+  background-color: transparent;
+  border-color: transparent;
+  outline-color: transparent;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255 255 255 / 0.7)
+}
+
 .content__details {
   grid-area: details;
-  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 26px;
+}
+
+.content__accent {
+
 }
 
 .content__list-container {
-  overflow: scroll;
   height: 298px;
+  overflow: scroll;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: start;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-thumbnail {
+  object-fit: cover;
+  object-position: center;
+  width: 194px;
+  height: 103px;
 }
