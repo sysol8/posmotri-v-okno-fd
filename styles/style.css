@@ -39,6 +39,10 @@ ol {
   list-style: none;
 }
 
+fieldset {
+  border: none;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -102,15 +106,30 @@ ol {
   margin-bottom: 5px; /* Или 7.5px, пока не допер */
 }
 
+.search-form__label {
+  display: flex;
+  width: fit-content;
+}
+
 .search-form__textfield {
   background-color: transparent;
-  border-color: transparent;
+  border-color: white;
+  border-left: none;
+  border-right: none;
   outline-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .search-form__textfield::placeholder {
   color: rgba(255 255 255 / 0.7);
   font-family: inherit;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
 }
 
 .content__details {
