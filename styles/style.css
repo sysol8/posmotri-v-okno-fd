@@ -43,6 +43,11 @@ fieldset {
   border: none;
 }
 
+input {
+  border: none;
+  font-family: inherit;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -56,14 +61,14 @@ fieldset {
 }
 
 .visually-hidden {
-  position: absolute; 
-  width: 1px; 
+  position: absolute;
+  width: 1px;
   height: 1px;
-  margin: -1px; 
-  padding: 0; 
-  border: 0; 
-  clip: rect(0 0 0 0); 
+  margin: -1px;
+  border: 0;
+  padding: 0;
   overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
 .content {
@@ -80,30 +85,37 @@ fieldset {
   grid-area: result;
 }
 
+.result__video-container {
+  width: 100%;
+  height: 386px;
+  margin-bottom: 16px;
+}
+
 .result__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.result__video-container {
-  height: 386px;
-  width: 100%;
-  margin-bottom: 16px;
-}
-
 .search-form {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  gap: 40px;
   height: 54px;
 }
 
-.search-form__fieldset-title {
-  font-size: 18px;
+.search-form__fieldset {
   font-weight: 400;
+  font-size: 18px;
   line-height: 22px;
-  margin-bottom: 5px; /* Или 7.5px, пока не допер */
+}
+
+.search-form__fieldset-title {
+  margin-bottom: 5px;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .search-form__label {
@@ -112,25 +124,63 @@ fieldset {
 }
 
 .search-form__textfield {
-  background-color: transparent;
-  border-color: white;
-  border-left: none;
+  border: 1px solid white;
   border-right: none;
-  outline-color: transparent;
+  border-left: none;
+  padding: 2.5px 0;
   color: inherit;
   font-size: inherit;
-  line-height: inherit;
+  background-color: transparent;
+  appearance: none;
 }
+
+.search-form__textfield {
+  width: 225px;
+}
+
+/* Убрать фокус у текстфилда при клике, оставить при табе */
 
 .search-form__textfield::placeholder {
   color: rgba(255 255 255 / 0.7);
-  font-family: inherit;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid white;
+}
+
+.search-form__label:has(.search-form__checkbox) {
+  display: flex;
+  gap: 5px;
 }
 
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
 }
+
+.search-form__pseudo-checkbox {
+  position: relative;
+  z-index: -1; /* не дает чекбоксам отображаться поверх прелоадера */
+  place-self: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background-color: white;
+}
+
+.search-form__label:has(.search-form__checkbox):hover {
+  text-decoration: underline;
+}
+
+.search-form__label:not(:has(.search-form__textfield)):hover {
+  cursor: pointer;
+} /* заменить на что-то более универсальное */
 
 .content__details {
   grid-area: details;
@@ -160,6 +210,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
 .content__card-link {
@@ -177,31 +228,71 @@ fieldset {
 }
 
 .content__video-card-title {
-  text-transform: uppercase;
-  font-family: Oswald;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
+  width: 196px;
   margin-bottom: 6px;
+  overflow: hidden;
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-  width: 196px;
 }
 
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed';
-  font-size: 18px;
+  overflow: hidden;
+  font-family: "Fira Sans Condensed";
   font-weight: 400;
+  font-size: 18px;
   line-height: 16px;
   line-clamp: 4;
   -webkit-line-clamp: 4;
-  overflow: hidden;
 }
 
 .content__video-card-thumbnail {
-  object-fit: cover;
-  object-position: center;
   width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.button {
+  border: 1px solid white;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  text-decoration: none; /* в макете у активной кнопки нет подчеркивания текста */
+  background-color: rgb(84 80 80);
+}
+
+.button:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+.search-form__submit-button {
+  place-self: end;
+  width: 194px;
+  height: 34px;
+}
+
+.more-button {
+  width: 100%;
+  height: 34px;
 }
