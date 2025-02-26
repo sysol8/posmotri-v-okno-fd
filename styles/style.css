@@ -124,6 +124,7 @@ input {
 }
 
 .search-form__textfield {
+  width: 225px;
   border: 1px solid white;
   border-right: none;
   border-left: none;
@@ -134,18 +135,17 @@ input {
   appearance: none;
 }
 
-.search-form__textfield {
-  width: 225px;
-}
-
-/* Убрать фокус у текстфилда при клике, оставить при табе */
-
 .search-form__textfield::placeholder {
   color: rgba(255 255 255 / 0.7);
 }
 
+.search-form__textfield:focus {
+  outline: none;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid white;
+  outline-offset: 2px;
 }
 
 .search-form__label:has(.search-form__checkbox) {
@@ -160,7 +160,8 @@ input {
 
 .search-form__pseudo-checkbox {
   position: relative;
-  z-index: -1; /* не дает чекбоксам отображаться поверх прелоадера */
+  z-index: -1; /* не дает чекбоксам отображаться поверх прелоадера //
+  потом прелоадер будет поверх элементов с поз: абсолют, поэтому убрать */
   place-self: center;
   width: 19px;
   height: 19px;
