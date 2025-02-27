@@ -139,8 +139,9 @@ input {
   color: rgba(255 255 255 / 0.7);
 }
 
-.search-form__textfield:focus {
+.search-form__textfield:active {
   outline: none;
+  border: none;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -175,13 +176,10 @@ input {
   background-color: white;
 }
 
-.search-form__label:has(.search-form__checkbox):hover {
-  text-decoration: underline;
-}
-
 .search-form__label:not(:has(.search-form__textfield)):hover {
   cursor: pointer;
-} /* заменить на что-то более универсальное */
+  text-decoration: underline;
+}
 
 .content__details {
   grid-area: details;
@@ -278,7 +276,7 @@ input {
 }
 
 .button:active {
-  text-decoration: none; /* в макете у активной кнопки нет подчеркивания текста */
+  text-decoration: none;
   background-color: rgb(84 80 80);
 }
 
@@ -294,6 +292,7 @@ input {
 }
 
 .more-button {
-  width: 100%;
+  width: 390px;
   height: 34px;
+  margin: 0 2px 2px;
 }
