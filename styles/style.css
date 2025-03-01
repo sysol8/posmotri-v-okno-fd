@@ -114,9 +114,6 @@ input {
 
 .search-form__fieldset-title {
   margin-bottom: 5px;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
 }
 
 .search-form__label {
@@ -129,13 +126,18 @@ input {
   outline-offset: 2px;
 }
 
+.search-form__label:has(:active) {
+  outline: none;
+}
+
 .search-form__label:has(.search-form__checkbox) {
   display: flex;
   gap: 5px;
 }
 
-.search-form__label:has(:active) {
-  outline: none;
+.search-form__label:not(:has(.search-form__textfield)):hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .search-form__textfield {
@@ -168,25 +170,19 @@ input {
 }
 
 .search-form__pseudo-checkbox {
-  position: relative;
-  z-index: -1; /* не дает чекбоксам отображаться поверх прелоадера //
-  потом прелоадер будет поверх элементов с поз: абсолют, поэтому убрать */
+  display: flex;
   place-self: center;
   width: 19px;
   height: 19px;
   border: 1px solid white;
+  padding: 1px;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: "";
-  position: absolute;
-  inset: 1px;
+  width: 100%;
+  height: 100%;
   background-color: white;
-}
-
-.search-form__label:not(:has(.search-form__textfield)):hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 .content__details {
