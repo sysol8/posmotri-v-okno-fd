@@ -13,7 +13,7 @@ html {
   align-items: center;
   margin: auto;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   inline-size: 1200px;
@@ -77,7 +77,6 @@ input {
   grid-template-areas: "result details";
   align-items: end;
   column-gap: 30px;
-  height: 534px;
   margin: auto;
 }
 
@@ -103,7 +102,6 @@ input {
   justify-content: space-between;
   align-items: start;
   gap: 40px;
-  height: 54px;
 }
 
 .search-form__fieldset {
@@ -114,15 +112,19 @@ input {
 
 .search-form__fieldset-title {
   margin-bottom: 5px;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .search-form__label {
   display: flex;
   width: fit-content;
+  align-items: center;
 }
 
 .search-form__label:has(:focus-visible) {
-  outline: 1px solid white;
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
@@ -142,7 +144,7 @@ input {
 
 .search-form__textfield {
   width: 225px;
-  border: 1px solid white;
+  border: 1px solid currentColor;
   border-right-color: transparent;
   border-left-color: transparent;
   padding: 2.5px 0;
@@ -156,8 +158,8 @@ input {
 }
 
 .search-form__textfield:active {
-  border-right-color: white;
-  border-left-color: white;
+  border-right-color: currentColor;
+  border-left-color: currentColor;
 }
 
 .search-form__textfield::placeholder {
@@ -174,7 +176,7 @@ input {
   place-self: center;
   width: 19px;
   height: 19px;
-  border: 1px solid white;
+  border: 1px solid currentColor;
   padding: 1px;
 }
 
@@ -193,7 +195,7 @@ input {
 
 .title {
   margin-bottom: 26px;
-  font-family: Oswald;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 94%;
@@ -207,7 +209,7 @@ input {
 .content__list-container {
   position: relative;
   height: 298px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .content__list {
@@ -245,7 +247,7 @@ input {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid white;
+  outline: 1px solid currentColor;
 }
 
 .content__video-card {
@@ -261,7 +263,7 @@ input {
 .content__video-card-title {
   margin-bottom: 6px;
   overflow: hidden;
-  font-family: Oswald;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 1;
@@ -272,7 +274,6 @@ input {
 
 .content__video-card-description {
   overflow: hidden;
-  font-family: "Fira Sans Condensed";
   font-weight: 400;
   font-size: 18px;
   line-height: 16px;
@@ -288,7 +289,7 @@ input {
 }
 
 .button {
-  border: 1px solid white;
+  border: 1px solid currentColor;
   color: inherit;
   font-family: inherit;
   font-weight: 700;
@@ -312,7 +313,7 @@ input {
 }
 
 .button:focus-visible {
-  outline: 1px solid white;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
